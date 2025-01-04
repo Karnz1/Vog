@@ -13,7 +13,5 @@ def compare_results(random_number, guess):
     else:
         return False
 
-def play():
-    generate_number()
-    get_guess_from_user()
-    return compare_results()
+def play(difficulty):
+    return compare_results(generate_number(difficulty), get_guess_from_user())
