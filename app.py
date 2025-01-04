@@ -10,4 +10,4 @@ def start_play():
     """)
     difficulty = input("Please choose the difficulty between 1 and 5 ")
 
-
+    return game, difficulty
