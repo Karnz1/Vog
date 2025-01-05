@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    networks:
+      network1:
+        ipve_address: 10.10.10.5
+    ports:
+      - "5000:5000"
+
+networks:
+  network1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
