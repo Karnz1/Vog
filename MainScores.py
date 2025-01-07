@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def score_server():
-    with open('scores/scores.txt', "r") as file:
+    with open('scores.txt', "r") as file:
         score = file.read()
         return render_template('index.html', score=score)
     

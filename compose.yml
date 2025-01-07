@@ -9,7 +9,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./scores:/app
+      - ./scores.txt:/app/scores.txt
 
 networks:
   network1:

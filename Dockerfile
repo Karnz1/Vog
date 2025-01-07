@@ -11,7 +11,3 @@ COPY MainScores.py /app
 EXPOSE 5000
 
 CMD ["python", "MainScores.py"]
-
-
-
-
