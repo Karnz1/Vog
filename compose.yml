@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   web:
+    image: xazmo/scoresweb:latest
     build: .
     networks:
       network1:
