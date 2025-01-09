@@ -2,12 +2,15 @@ version: "3.9"
 
 services:
   web:
+    image: xazmo/scoresweb:latest
     build: .
     networks:
       network1:
-        ipve_address: 10.10.10.5
+        ipv4_address: 10.10.10.5
     ports:
       - "5000:5000"
+    volumes:
+      - ./scores.txt:/app/scores.txt
 
 networks:
   network1:
@@ -15,3 +18,4 @@ networks:
     ipam:
       config:
         - subnet: 10.10.10.0/24
+

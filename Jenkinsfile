@@ -1,34 +1,30 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('checkout') {
             steps {
-                checkout scm
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Karnz1/Vog.git']])
             }
         }
         stage('Build') {
             steps {
-                script {
-                    // Add your build commands here
-                    echo 'Building...'
-                }
+                sh 'docker-compose build'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'docker-compose up'
             }
         }
         stage('Test') {
             steps {
-                script {
-                    // Add your test commands here
-                    echo 'Testing...'
-                }
+                sh 'python tests/e2e.py'
             }
         }
-        stage('Push') {
+        stage('Finalize') {
             steps {
-                script {
-                    // Add your push commands here
-                    echo 'Pushing...'
-                }
+                sh 'docker-compose down'
+                sh 'docker push xazmo/scoresweb:latest'
             }
         }
     }
