@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
-#comment
+#comm
 @app.route("/")
 def score_server():
     with open('scores.txt', "r") as file:
