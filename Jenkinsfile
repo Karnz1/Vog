@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 //sh 'python tests/e2e.py'
-                bat 'python ./tests/e2e.py'
+                bat 'C:\Users\michael\AppData\Local\Programs\Python\Python313\python.exe ./tests/e2e.py'
             }
         }
         stage('Finalize') {
